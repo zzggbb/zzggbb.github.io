@@ -1,1 +1,66 @@
-Pls Work
+<html>
+    <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <style>
+    * {
+        font-family: 'Roboto',sans-serif;
+        color:#394046;
+    }
+    body,html {
+        padding: 0px;
+        margin: 0px;
+        height:100%;
+    }
+    a {text-decoration: none;}
+    #inner {
+        background-color: #ffffff;
+        /*box-shadow: inset 0 0 0px #2a8e6a;*/
+        display: inline-block;
+    }
+    #outer {
+        width: 100%;
+        text-align: center;
+    }
+    #item {
+        font-size: 32px;  
+    }
+    </style>
+
+    <script>
+        var links = [
+            ['github','http://github.com/hifiboombox'],
+            ['gist','https://gist.github.com/Hifiboombox'],
+            ['reddit','http://www.reddit.com/user/hifiboombox'],
+            ['lastfm','http://www.last.fm/user/hifiboombox'],
+            ['librefm','https://libre.fm/user/hifiboombox'],
+            ['email','mailto:zbradley96@gmail.com'],
+            ['dotfiles','http://github.com/hifiboombox/dotfiles'],
+            ['server','http://zane.duckdns.org'],
+
+
+        ]
+        $(document).ready(setup);
+        function setup() {
+            links.map(function(n) {
+                $('#inner').append(item(n)); 
+            });
+        }
+        function item(pair) {
+            return $("<div></div>")
+            .attr('id','item')
+            .append(
+                $("<a></a>")
+                .attr("href",pair[1])
+                .text(pair[0])
+            )
+        }
+
+    </script>
+
+    </head>
+
+    <body>
+        <div id='outer'><div id='inner'></div></div>
+    </body>
+</html>
