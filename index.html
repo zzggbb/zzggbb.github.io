@@ -21,32 +21,47 @@
         width: 100%;
     }
     #item {
-        font-size: 32px;  
+        font-size: 20px;
+        max-width: 50%;
     }
     </style>
 
     <script>
-        var links = [
-            ['github','http://github.com/hifiboombox'],
-            ['gist','https://gist.github.com/Hifiboombox'],
-            ['reddit','http://www.reddit.com/user/hifiboombox'],
-            ['lastfm','http://www.last.fm/user/hifiboombox'],
-            ['librefm','https://libre.fm/user/hifiboombox'],
-            ['email','mailto:zbradley96@gmail.com'],
-            ['dotfiles','http://github.com/hifiboombox/dotfiles'],
-            ['server','http://zane.duckdns.org'],
-            ['GCS/GMU/GE d(++) p- c++(++++) l++ u+ e(*) m* s+/- n-(+) h++(*/---) f+ !g w+ t r y+(**)','https://gist.github.com/anonymous/8e86dd0701bc14b47c27']
+        var sections = {
+            'profiles': [
+                ['github','http://github.com/hifiboombox'],
+                ['gist','https://gist.github.com/Hifiboombox'],
+                ['reddit','http://www.reddit.com/user/hifiboombox'],
+                ['lastfm','http://www.last.fm/user/hifiboombox'],
+                ['librefm','https://libre.fm/user/hifiboombox'],
+                ['email','mailto:zbradley96@gmail.com'],
+                ['dotfiles','http://github.com/hifiboombox/dotfiles'],
+                ['server','http://zane.duckdns.org'],
 
+            ],
+            'projects': [
+               ['allit','http://hifiboombox.github.io/allit'],
+               ['small-data','http://hifiboombox.github.io/small-data'],
+               ['fridge','http://hifiboombox.github.io/fridge'],
+               ['cubejs','http://hifiboombox.github.io/cubejs'],
 
-        ]
-        $(document).ready(setup);
-        function setup() {
-            links.map(function(n) {
-                $('#inner').append(item(n)); 
-            });
+            ],
+            'misc': [
+                ['GCS/GMU/GE d(++) p- c++(++++) l++ u+ e(*) m* s+/- n-(+) h++(*/---) f+ !g w+ t r y+(**)','https://gist.github.com/anonymous/8e86dd0701bc14b47c27'],
+                ['page source','https://raw.githubusercontent.com/Hifiboombox/hifiboombox.github.io/master/index.html']
+            ]
+
         }
+        $(document).ready(function () {
+            for (var section in sections) {
+                $('#outer')
+                .append($('<h1>').text(section))
+                .append($('<ul>').append(sections[section].map(item)))
+            } 
+        });
+        
         function item(pair) {
-            return $("<div></div>")
+            return $("<li>")
             .attr('id','item')
             .append(
                 $("<a></a>")
@@ -60,6 +75,6 @@
     </head>
 
     <body>
-        <div id='outer'><div id='inner'></div></div>
+        <div id='outer'></ul></div>
     </body>
 </html>
