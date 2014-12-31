@@ -73,6 +73,16 @@
                 .attr("href",pair[1])
                 .text(pair[0])
             )
+	    	.hover(
+				/* in */
+	    		function(){
+					this.text(btoa(pair[0]))	
+				},
+				/* out */
+				function(){
+					this.text(pair[0])	
+				},
+	    	)
         }
 
     </script>
