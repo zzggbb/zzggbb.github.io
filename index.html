@@ -26,11 +26,11 @@
     #item {
         font-size: 20px;
         max-width: 50%;
-		word-wrap: break-word;
+        word-wrap: break-word;
     }
-	#item:hover {
-		color: #31adc9;
-	}
+    #item:hover {
+        color: #31adc9;
+    }
     </style>
 
     <script>
@@ -68,7 +68,7 @@
                 .append($('<ul>').append(sections[section].map(item)))
             } 
         });
-       	 
+         
         function item(pair) {
             return $("<li>")
             .attr('id','item')
@@ -77,18 +77,15 @@
                 .attr("href",pair[1])
                 .text(pair[0])
             )
-	    	.hover(
-				/* in */
-	    		function(){
-					$(this).children('a').text(btoa(pair[0]))
-				},
-				/* out */
-				function(){
-					$(this).children('a').text(pair[0])	
-				}
-	    	)
+            .hover(
+                function(){
+                    $(this).children('a').text(btoa(pair[0]))
+                },
+                function(){
+                    $(this).children('a').text(pair[0]) 
+                }
+            )
         }
-
     </script>
 
     </head>
