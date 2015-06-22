@@ -77,14 +77,6 @@
                 .attr("href",pair[1])
                 .text(pair[0])
             )
-            .hover(
-                function(){
-                    $(this).children('a').text(btoa(pair[0]))
-                },
-                function(){
-                    $(this).children('a').text(pair[0]) 
-                }
-            )
         }
     </script>
 
