@@ -3,16 +3,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"> 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <style>
-
-    h1, #item, a {
-        color: #000;
-    }
-    body,html {
+    body {
         background-color: #fff;
         margin: 10px;
+        font-family: monospace;
     }
     a {
         text-decoration: none;
+        color: #000;
     }
     #inner {
         display: inline-block;
@@ -20,13 +18,19 @@
     #outer {
         width: 100%;
     }
-    #item {
-        word-wrap: break-word;
+    ul {
+        margin: 0 0 10 0px;
+        padding-left: 22px;
+    }
+    li {
+        list-style-type: square;
+        color: red;
     }
     </style>
 
     <script>
-        var sections = {
+        colors = ['#EF2F7C', '#37B575', '#F3B81C', '#5295CA', '#EB7B15', '#538A84']
+        sections = {
             'profiles': [
                 ['github','http://github.com/zzggbb'],
                 ['gist','https://gist.github.com/zzggbb'],
@@ -54,7 +58,7 @@
         
         function section(name){
             $('#outer').append(
-                $('<h1>').text(name)
+                $('<span>').text(name)
             ).append(
                 $('<ul>').append(
                     sections[name].map(item)
@@ -64,6 +68,7 @@
         function item(pair) {
             return $("<li>")
             .attr('id','item')
+            .css('color',colors[Math.floor(Math.random()*colors.length)])
             .append(
                 $("<a></a>")
                 .attr("href",pair[1])
