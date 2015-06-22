@@ -1,17 +1,14 @@
 <html>
-    <head>
-   <meta name="viewport" content="width=device-width,initial-scale=1"> 
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1"> 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <style>
-    * {
-        font-family: 'Roboto',sans-serif;
-    }
+
     h1, #item, a {
-        color: #fff;
+        color: #000;
     }
     body,html {
-        background-color: #394046;
+        background-color: #fff;
         margin: 10px;
     }
     a {
@@ -24,51 +21,46 @@
         width: 100%;
     }
     #item {
-        font-size: 20px;
-        max-width: 50%;
         word-wrap: break-word;
-    }
-    #item:hover {
-        color: #31adc9;
     }
     </style>
 
     <script>
         var sections = {
             'profiles': [
-                ['github','http://github.com/hifiboombox'],
-                ['gist','https://gist.github.com/Hifiboombox'],
+                ['github','http://github.com/zzggbb'],
+                ['gist','https://gist.github.com/zzggbb'],
                 ['reddit','http://www.reddit.com/user/hifiboombox'],
                 ['lastfm','http://www.last.fm/user/hifiboombox'],
                 ['librefm','https://libre.fm/user/hifiboombox'],
-                ['email','mailto:zbradley96@gmail.com'],
-                ['dotfiles','http://github.com/hifiboombox/dotfiles'],
+                ['email','mailto:zane@mailoo.org'],
+                ['dotfiles','http://github.com/zzggbb/dotfiles'],
             ],
             'projects': [
-                ['allit','http://hifiboombox.github.io/allit'],
-                ['small-data','http://hifiboombox.github.io/small-data'],
-                ['fridge','http://hifiboombox.github.io/fridge'],
-                ['cubejs','http://hifiboombox.github.io/cubejs'],
-                ['ruci','http://github.com/hifiboombox/ruci']
-            ],
-            'server': [
-                ['torrents','http://zane.duckdns.org:5004'],
-                ['cups','http://zane.duckdns.org:5005']     
+                ['colorblocks','http://github.com/zzggbb/colorblocks'],
+                ['boid','/boid'],
+                ['fridge','/fridge'],
+                ['cubejs','/cubejs'],
             ],
             'misc': [
                 ['GCS/GMU/GE d(++) p- c++(++++) l++ u+ e(*) m* s+/- n-(+) h++(*/---) f+ !g w+ t r y+(**)','https://gist.githubusercontent.com/anonymous/8e86dd0701bc14b47c27/raw/d963348fb173d11a62761e1d1c17d30b8bc952d0/gistfile1.txt'],
-                ['page source','https://raw.githubusercontent.com/Hifiboombox/hifiboombox.github.io/master/index.html']
+                ['page source','https://raw.githubusercontent.com/zzggbb/zzggbb.github.io/master/index.html']
             ]
 
         }
         $(document).ready(function () {
-            for (var section in sections) {
-                $('#outer')
-                .append($('<h1>').text(section))
-                .append($('<ul>').append(sections[section].map(item)))
-            } 
+            Object.keys(sections).map(section)
         });
-         
+        
+        function section(name){
+            $('#outer').append(
+                $('<h1>').text(name)
+            ).append(
+                $('<ul>').append(
+                    sections[name].map(item)
+                )
+            )
+        }
         function item(pair) {
             return $("<li>")
             .attr('id','item')
@@ -79,10 +71,8 @@
             )
         }
     </script>
-
-    </head>
-
-    <body>
-        <div id='outer'></div>
-    </body>
+</head>
+<body>
+    <div id='outer'></div>
+</body>
 </html>
