@@ -1,56 +1,53 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1"> 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <style>
     body {
         background-color: #fff;
         margin: 10px;
         font-family: monospace;
+        font-size: 15px;
     }
     a {
         text-decoration: none;
         color: #000;
     }
-    #inner {
-        display: inline-block;
-    }
-    #outer {
-        width: 100%;
-    }
     ul {
         margin: 0 0 10 0px;
-        padding-left: 22px;
+        padding-left: 25px;
     }
     li {
+        margin-top: 5px;
         list-style-type: square;
-        color: red;
     }
     </style>
-
     <script>
         colors = ['#EF2F7C', '#37B575', '#F3B81C', '#5295CA', '#EB7B15', '#538A84']
         sections = {
-            'profiles': [
-                ['github','http://github.com/zzggbb'],
-                ['gist','https://gist.github.com/zzggbb'],
-                ['reddit','http://www.reddit.com/user/hifiboombox'],
-                ['lastfm','http://www.last.fm/user/hifiboombox'],
+            'profiles + contact': [
+                ['reddit','https://www.reddit.com/user/hifiboombox'],
+                ['voat','https://voat.co/user/zzggbb'],
+                ['lastfm','https://www.last.fm/user/hifiboombox'],
                 ['librefm','https://libre.fm/user/hifiboombox'],
                 ['email','mailto:zane@mailoo.org'],
-                ['dotfiles','http://github.com/zzggbb/dotfiles'],
+            ],
+            'programming': [
+                ['github','https://github.com/zzggbb'],
+                ['gist','https://gist.github.com/zzggbb'],
+                ['dotfiles','https://github.com/zzggbb/dotfiles'],
             ],
             'projects': [
-                ['colorblocks','http://github.com/zzggbb/colorblocks'],
+                ['colorblocks','https://github.com/zzggbb/colorblocks'],
                 ['boid','/boid'],
                 ['fridge','/fridge'],
                 ['cubejs','/cubejs'],
             ],
             'misc': [
-                ['GCS/GMU/GE d(++) p- c++(++++) l++ u+ e(*) m* s+/- n-(+) h++(*/---) f+ !g w+ t r y+(**)','https://gist.githubusercontent.com/anonymous/8e86dd0701bc14b47c27/raw/d963348fb173d11a62761e1d1c17d30b8bc952d0/gistfile1.txt'],
+                ['GCS/GMU/GE d(++) p- c++(++++) l++ u+ e(*) m* s+/- n-(+) h++(*/---) f+ !g w+ t r y+(**)',
+                'https://gist.githubusercontent.com/anonymous/8e86dd0701bc14b47c27/raw/d963348fb173d11a62761e1d1c17d30b8bc952d0/gistfile1.txt'],
                 ['page source','https://raw.githubusercontent.com/zzggbb/zzggbb.github.io/master/index.html']
             ]
-
         }
         $(document).ready(function () {
             Object.keys(sections).map(section)
@@ -70,9 +67,7 @@
             .attr('id','item')
             .css('color',colors[Math.floor(Math.random()*colors.length)])
             .append(
-                $("<a></a>")
-                .attr("href",pair[1])
-                .text(pair[0])
+                $("<a></a>").attr("href",pair[1]).text(pair[0])
             )
         }
     </script>
