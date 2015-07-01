@@ -18,6 +18,7 @@
     #section {
         display: table-row;
     }
+
     a {
         text-decoration: none;
         color: #000;
@@ -35,8 +36,14 @@
     #item {
         margin-bottom: 5px;
     }
+    #item:last-child {
+        margin-bottom: 0px;
+    }
     #item:before {
-        content: "> ";
+        content: "▸ ";
+    }
+    #section:last-child > #section-content{
+        padding-bottom: 0px; 
     }
     </style>
     <script>
