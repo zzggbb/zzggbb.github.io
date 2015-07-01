@@ -6,22 +6,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <style>
     body {
-        background-color: #fff;
-        margin: 10px;
         font-family: monospace;
         font-size: 15px;
+        color: #000;
+        margin: 0px;
+    }
+    #outer {
+        position: relative;
+        margin: 10px;
+    }
+    #section {
+        display: table-cell;
+        border-right: 1px solid #000;
+        padding: 0 5 0 5px;
+        min-width: 20%;
+    }
+    #section:last-child{
+        border-right: none;
     }
     a {
         text-decoration: none;
         color: #000;
     }
     ul {
-        margin: 0 0 10 0px;
-        padding-left: 25px;
+        margin: 0 0 0 0px;
+        padding-left: 17px;
     }
     li {
         margin-top: 5px;
         list-style-type: square;
+    }
+    #section-title {
+        display: inline-block;
     }
     </style>
     <script>
@@ -57,6 +73,10 @@
                 ['peripherals','https://raw.githubusercontent.com/zzggbb/dotfiles/master/hardware/peripherals'],
                 ['power','https://raw.githubusercontent.com/zzggbb/dotfiles/master/hardware/power']
             ],
+            'life projects': [
+                ['amp,dac,router, and headphone rack','http://imgur.com/a/bsJsQ'],
+                ['record cabinet','http://imgur.com/a/83zjT']
+            ],
             'misc': [
                 ['GCS/GMU/GE d(++) p- c++(++++) l++ u+ e(*) m* s+/- n-(+) h++(*/---) f+ !g w+ t r y+(**)',
                 'https://gist.githubusercontent.com/anonymous/8e86dd0701bc14b47c27/raw/d963348fb173d11a62761e1d1c17d30b8bc952d0/gistfile1.txt'],
@@ -69,10 +89,11 @@
         
         function section(name){
             $('#outer').append(
-                $('<span>').text(name)
-            ).append(
-                $('<ul>').append(
-                    sections[name].map(item)
+                $('<div>').attr('id','section').append(
+                    [
+                        $('<div>').attr('id','section-title').text(name),
+                        $('<ul>').append(sections[name].map(item))
+                    ]
                 )
             )
         }
